@@ -1,0 +1,86 @@
+button {
+    display: inline-flex;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.375rem;
+    background-color: rgb(114, 76, 210);
+    padding: 0 1.5rem;
+    font-weight: 500;
+    color: rgb(17, 3, 52);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+        0 10px 15px -3px rgba(31, 41, 55, 0.2),
+        0 4px 6px -2px rgba(31, 41, 55, 0.2);
+}
+
+button svg {
+    height: 1.25rem;
+    width: 1.25rem;
+}
+
+.shrinkOnClick {
+    transition: transform 150ms;
+}
+.shrinkOnClick:active {
+    transform: scale(0.95);
+}
+
+.squishOnClick {
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.squishOnClick:active {
+    transform: translateY(0.25rem) scaleX(1.1) scaleY(0.9);
+}
+
+.iconShiftOnHover {
+    transition: transform 150ms;
+}
+.iconContainer {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.33rem;
+    transition: transform 150ms;
+}
+.iconShiftOnHover:hover .iconContainer {
+    transform: translateX(0.33rem);
+}
+
+.skeumorphicButton {
+    transition: all 150ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0px 0px 1px rgb(62, 35, 137);
+    transform: translateY(0px);
+}
+.skeumorphicButton:hover:not(:active) {
+    transform: translateY(-4px);
+    box-shadow: 0px 4px 1px rgb(62, 35, 137);
+}
+
+.shimmerOnHover {
+    position: relative;
+    transition: transform 150ms;
+    overflow: hidden;
+}
+.shimmerOnHover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    transform: skew(-12deg) translateX(-110%);
+    transition-duration: 0ms;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.181);
+    pointer-events: none;
+}
+.shimmerOnHover:hover::before {
+    transition-duration: 500ms;
+    transform: skew(-12deg) translateX(110%);
+}
